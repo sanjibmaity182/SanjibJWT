@@ -33,3 +33,28 @@ A secure, lightweight, and feature-rich JWT (JSON Web Token) implementation for 
 
 ```bash
 composer require sanjib/jwt
+
+
+🤝 Contributing
+Contributions are welcome! Please read our contributing guide to get started.
+
+Fork the repository
+Create your feature branch (git checkout -b feature/AmazingFeature)
+Commit your changes (git commit -m 'Add some AmazingFeature')
+Push to the branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+📜 License
+Distributed under the MIT License. See LICENSE for more information.
+
+📞 Contact
+Your Name - Sanjib Maity - sanjibmaity182@example.com
+
+Project Link: https://github.com/yourusername/SanjibJWT
+
+🙏 Acknowledgments
+JWT.io for the awesome JWT introduction
+All contributors who helped improve this project
+📊 Stats
+GitHub starsGitHub forksGitHub watchers
+
+
