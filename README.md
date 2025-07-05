@@ -1,58 +1,73 @@
-# SanjibJWT 🔐
-
-[![PHP Version](https://img.shields.io/badge/php-7.0%2B-blue.svg)](https://packagist.org/packages/sanjib/jwt)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Build Status](https://travis-ci.com/yourusername/SanjibJWT.svg?branch=main)](https://travis-ci.com/yourusername/SanjibJWT)
-[![Coverage Status](https://coveralls.io/repos/github/yourusername/SanjibJWT/badge.svg?branch=main)](https://coveralls.io/github/yourusername/SanjibJWT?branch=main)
+# SanjibJWT \ud83d\udd12
 
 A secure, lightweight, and feature-rich JWT (JSON Web Token) implementation for PHP applications. Built with security and simplicity in mind, SanjibJWT provides everything you need to implement secure token-based authentication.
 
-## ✨ Features
+## Features
 
-- **🔒 Secure by Default**
-  - HMAC-SHA256 signing
-  - IP-based access control
-  - Server map rotation
-  - Timing attack prevention
+- Secure by Default (HMAC-SHA256, IP-based access, server map rotation)
+- Zero dependencies, easy integration
+- Custom header validation
+- Configurable token expiration
+- Stateless authentication
 
-- **🚀 Easy Integration**
-  - Zero dependencies
-  - Simple, intuitive API
-  - PSR-4 compatible
-  - Works with any PHP 7.0+ project
+## Installation
 
-- **⚡ Advanced Features**
-  - Custom header validation
-  - Configurable token expiration
-  - Stateless authentication
-  - Lightweight and fast
-
-## 📦 Installation
-
-
-🤝 Contributing
-Contributions are welcome! Please read our contributing guide to get started.
-
-Fork the repository
-Create your feature branch (git checkout -b feature/AmazingFeature)
-Commit your changes (git commit -m 'Add some AmazingFeature')
-Push to the branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-📜 License
-Distributed under the MIT License. See LICENSE for more information.
-
-📞 Contact
-Your Name - Sanjib Maity - sanjibmaity182@example.com
-
-Project Link: https://github.com/yourusername/SanjibJWT
-
-🙏 Acknowledgments
-JWT.io for the awesome JWT introduction
-All contributors who helped improve this project
-📊 Stats
-GitHub starsGitHub forksGitHub watchers
-
-### Using Composer (Recommended)
-
+### Composer (Recommended)
 ```bash
 composer require sanjib/jwt
+```
+
+### Manual
+1. Download `SanjibJWT.php`
+2. Include it in your project:
+   ```php
+   require_once 'path/to/SanjibJWT.php';
+   ```
+
+## Quick Start
+
+```php
+use SanjibJWT\SanjibJWT;
+
+$jwt = new SanjibJWT([
+    'secret' => 'your-secure-secret-key',
+    'access_token_expire' => 3600
+]);
+
+$token = $jwt->createToken([
+    'user_id' => 123,
+    'username' => 'sanjib'
+]);
+
+$payload = $jwt->validateToken($token['access_token']);
+
+if ($payload) {
+    echo "Welcome back, User #" . $payload['user_id'];
+} else {
+    echo "Invalid token: " . $jwt->getLastError();
+}
+```
+
+## Configuration
+
+| Option                | Type   | Default      | Description                              |
+|-----------------------|--------|--------------|------------------------------------------|
+| `secret`              | string | (required)   | Secret key for signing tokens            |
+| `algorithm`           | string | 'HS256'      | Signing algorithm                        |
+| `leeway`              | int    | 60           | Leeway in seconds for clock skew         |
+| `access_token_expire` | int    | 3600         | Token expiration in seconds              |
+| `allowed_ips`         | array  | []           | Restrict token usage to these IPs        |
+| `require_https`       | bool   | true         | Require HTTPS for token validation       |
+
+## Security Best Practices
+
+- Always use HTTPS in production
+- Rotate your secret key periodically
+- Set appropriate token expiration times
+- Validate all token claims in your application
+- Use IP restrictions when possible
+- Never expose your secret key in client-side code
+
+## License
+
+MIT License
