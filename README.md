@@ -29,11 +29,6 @@ A secure, lightweight, and feature-rich JWT (JSON Web Token) implementation for 
 
 ## 📦 Installation
 
-### Using Composer (Recommended)
-
-```bash
-composer require sanjib/jwt
-
 
 🤝 Contributing
 Contributions are welcome! Please read our contributing guide to get started.
@@ -57,4 +52,7 @@ All contributors who helped improve this project
 📊 Stats
 GitHub starsGitHub forksGitHub watchers
 
+### Using Composer (Recommended)
 
+```bash
+composer require sanjib/jwt
