@@ -1,4 +1,4 @@
-# SanjibJWT \
+# SanjibJWT
 
 A secure, lightweight, and feature-rich JWT (JSON Web Token) implementation for PHP applications. Built with security and simplicity in mind, SanjibJWT provides everything you need to implement secure token-based authentication.
 
